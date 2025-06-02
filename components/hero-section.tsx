@@ -6,7 +6,7 @@ import { connectToDatabase } from '@/lib/mongodb'
 
 export function HeroSection() {
   return (
-    <section className="relative w-full aspect-[4096/2720] flex items-center justify-center overflow-hidden mt-24 md:mt-28 lg:mt-32">
+    <section className="relative w-full aspect-[4096/2720] flex items-center justify-center overflow-hidden mt-40 md:mt-44 lg:mt-48">
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/dubai-abaya-sunset.png"

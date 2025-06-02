@@ -6,7 +6,7 @@ import { connectToDatabase } from '@/lib/mongodb'
 
 export function HeroSection() {
   return (
-    <section className="relative w-full aspect-[4096/2720] flex items-end sm:items-center justify-center overflow-hidden mt-24 md:mt-28 lg:mt-32">
+    <section className="relative w-full aspect-[4096/2720] flex items-center justify-center overflow-hidden mt-24 md:mt-28 lg:mt-32">
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/dubai-abaya-sunset.png"
@@ -33,7 +33,7 @@ export function HeroSection() {
       {/* Add Islamic pattern behind the text */}
       <div className="absolute inset-0 islamic-hero-pattern opacity-20"></div>
 
-      <div className="container relative z-10 px-4 sm:px-6 lg:px-8 text-center pb-16 sm:pb-0">
+      <div className="container relative z-10 px-4 sm:px-6 lg:px-8 text-center mt-8 sm:mt-0">
         <h1 className="heading-primary !text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-6 md:mb-8 leading-tight">
           <span className="block">Exceptional Properties</span>
           <span className="block">Extraordinary Living</span>

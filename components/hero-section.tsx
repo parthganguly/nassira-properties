@@ -34,10 +34,9 @@ export function HeroSection() {
       <div className="absolute inset-0 islamic-hero-pattern opacity-20"></div>
 
       <div className="container relative z-10 px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="heading-primary !text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-6 md:mb-8">
-          Exceptional Properties
-          <br className="hidden sm:block" />
-          Extraordinary Living
+        <h1 className="heading-primary !text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-6 md:mb-8 leading-tight">
+          <span className="block">Exceptional Properties</span>
+          <span className="block">Extraordinary Living</span>
         </h1>
         <div className="flex flex-col items-center justify-center mb-8 md:mb-10">
           <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#D4AF37] italic mb-4 md:mb-6">

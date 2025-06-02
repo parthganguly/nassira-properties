@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 45 33% 97%;
+    --foreground: 226 37% 17%;
+    
+    --card: 45 33% 97%;
+    --card-foreground: 226 37% 17%;
+    
+    --popover: 45 33% 97%;
+    --popover-foreground: 226 37% 17%;
+    
+    --primary: 226 37% 17%;
+    --primary-foreground: 45 33% 97%;
+    
+    --secondary: 45 65% 52%;
+    --secondary-foreground: 226 37% 17%;
+    
+    --muted: 226 37% 17% / 0.1;
+    --muted-foreground: 226 37% 17% / 0.7;
+    
+    --accent: 45 65% 52%;
+    --accent-foreground: 226 37% 17%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 45 33% 97%;
+
+    --border: 45 65% 52%;
+    --input: 45 65% 52%;
+    --ring: 45 65% 52%;
+    
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-cream text-navy font-garamond;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-garamond uppercase tracking-elegant;
+  }
+}
+
+.garamond {
+  font-family: "EB Garamond", serif;
+}
+
+.property-card:hover .property-image {
+  transform: scale(1.05);
+  transition: transform 0.5s ease;
+}
+
+.property-image {
+  transition: transform 0.5s ease;
+}
+
+.logo-glow {
+  filter: drop-shadow(0 0 12px rgba(207, 161, 83, 0.6));
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.logo-glow:hover {
+  filter: drop-shadow(0 0 18px rgba(207, 161, 83, 0.8));
+  transform: scale(1.02);
+}
+
+.geometric-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23CFA153' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.gold-shimmer {
+  background: linear-gradient(90deg, rgba(207, 161, 83, 0.1), rgba(158, 111, 44, 0.2), rgba(207, 161, 83, 0.1));
+  background-size: 200% 100%;
+  animation: shimmer 8s infinite linear;
+}
+
+.islamic-pattern {
+  background-image: url('/pattern.svg');
+  background-repeat: repeat;
+  background-size: 100px 100px;
+  opacity: 0.05;
+}
+
+.islamic-hero-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23CFA153' fill-opacity='0.12' d='M9 0h2v20H9V0zm25.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm-20 20l1.732 1-10 17.32-1.732-1 10-17.32zM58.16 4.134l1 1.732-17.32 10-1-1.732 17.32-10zm-40 40l1 1.732-17.32 10-1-1.732 17.32-10zM80 9v2H60V9h20zM20 69v2H0v-2h20zm79.32-55l-1 1.732-17.32-10L82 4l17.32 10zm-80 80l-1 1.732-17.32-10L2 84l17.32 10zm96.546-75.84l-1.732 1-10-17.32 1.732-1 10 17.32zm-100 100l-1.732 1-10-17.32 1.732-1 10 17.32zM38.16 24.134l1 1.732-17.32 10-1-1.732 17.32-10zM60 29v2H40v-2h20zm19.32 5l-1 1.732-17.32-10L62 24l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM111 40h-2V20h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zM40 49v2H20v-2h20zm19.32 5l-1 1.732-17.32-10L42 44l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM91 60h-2V40h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM39.32 74l-1 1.732-17.32-10L22 64l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM71 80h-2V60h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM120 89v2h-20v-2h20zm-84.134 9.16l-1.732 1-10-17.32 1.732-1 10 17.32zM51 100h-2V80h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM100 109v2H80v-2h20zm19.32 5l-1 1.732-17.32-10 1-1.732 17.32 10zM31 120h-2v-20h2v20z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.gold-border {
+  position: relative;
+}
+
+.gold-border::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 1px solid #cfa153;
+  pointer-events: none;
+}
+
+.gold-border-gradient {
+  position: relative;
+}
+
+.gold-border-gradient::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  background: linear-gradient(45deg, #cfa153, #9e6f2c, #cfa153);
+  border-radius: 0.5rem;
+  z-index: -1;
+}
+
+.gold-text-shadow {
+  text-shadow: 0 0 10px rgba(207, 161, 83, 0.5);
+}
+
+.flourish {
+  position: relative;
+}
+
+.flourish::before,
+.flourish::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 60px;
+  background: linear-gradient(90deg, rgba(207, 161, 83, 0) 0%, rgba(207, 161, 83, 0.8) 50%, rgba(207, 161, 83, 0) 100%);
+}
+
+.flourish::before {
+  left: -70px;
+  top: 50%;
+}
+
+.flourish::after {
+  right: -70px;
+  top: 50%;
+}
+
+.button-gold {
+  @apply bg-gold text-navy hover:bg-gold-light transition-colors duration-300 uppercase tracking-elegant;
+}
+
+.card-elegant {
+  @apply bg-cream border-thin border-gold/30 hover:border-gold/60 transition-all duration-300;
+}
+
+.heading-primary {
+  @apply text-navy uppercase tracking-elegant font-medium;
+}
+
+.text-body {
+  @apply text-navy/80 leading-relaxed;
+}
+
+.arabic {
+  @apply font-uthman;
+}
+

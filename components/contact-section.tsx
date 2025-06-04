@@ -4,7 +4,7 @@ import { DecorativePattern } from "@/components/decorative-pattern"
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-24 bg-brand-cream relative overflow-hidden">
+    <section id="contact" className="pt-[56px] md:pt-[80px] lg:pt-[96px] pb-24 bg-brand-cream relative overflow-hidden">
       <div className="absolute top-0 right-0 w-64 h-64 opacity-10 rotate-45">
         <DecorativePattern />
       </div>
@@ -12,7 +12,7 @@ export function ContactSection() {
         <DecorativePattern />
       </div>
 
-      <div className="container px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container max-w-container px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-garamond uppercase tracking-wider mb-6 text-brand-gold">Contact Us</h2>
           <div className="flex items-center justify-center mb-8">

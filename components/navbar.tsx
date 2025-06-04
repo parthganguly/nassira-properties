@@ -49,9 +49,9 @@ export function Navbar() {
   const isHome = pathname === "/"
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-gold/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-24">
+    <header className="fixed top-0 inset-x-0 z-nav bg-cream/95 backdrop-blur-sm border-b border-gold/30">
+      <div className="container max-w-container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14 md:h-20 lg:h-24">
           <div className="flex-shrink-0 pl-2">
             <Link href="/" className="flex items-center">
               <Image
@@ -68,6 +68,9 @@ export function Navbar() {
           <nav className="hidden md:flex space-x-8">
             <NavLink href="/properties" active={pathname === "/properties"}>
               Properties
+            </NavLink>
+            <NavLink href="/listings" active={pathname === "/listings"}>
+              Listings
             </NavLink>
             <NavLink href="/about" active={pathname === "/about"}>
               About
@@ -122,6 +125,9 @@ export function Navbar() {
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-cream border-b border-gold/30">
             <MobileNavLink href="/properties" active={pathname === "/properties"} onClick={() => setIsMenuOpen(false)}>
               Properties
+            </MobileNavLink>
+            <MobileNavLink href="/listings" active={pathname === "/listings"} onClick={() => setIsMenuOpen(false)}>
+              Listings
             </MobileNavLink>
             <MobileNavLink href="/about" active={pathname === "/about"} onClick={() => setIsMenuOpen(false)}>
               About

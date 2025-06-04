@@ -11,7 +11,7 @@ interface PageLayoutProps {
 
 export function PageLayout({ children, title, subtitle }: PageLayoutProps) {
   return (
-    <main className="min-h-screen bg-brand-cream text-brand-navy">
+    <main className="min-h-screenDynamic bg-brand-cream text-brand-navy z-base">
       <Navbar />
 
       {/* Page header */}
@@ -21,7 +21,7 @@ export function PageLayout({ children, title, subtitle }: PageLayoutProps) {
           <DecorativePattern />
         </div>
 
-        <div className="container px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="container max-w-container px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             <h1 className="heading-primary text-4xl md:text-5xl lg:text-6xl mb-6 text-brand-navy">
               {title}

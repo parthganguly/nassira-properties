@@ -1,27 +1,42 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { DecorativePattern } from "@/components/decorative-pattern"
-import { connectToDatabase } from '@/lib/mongodb'
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { DecorativePattern } from "@/components/decorative-pattern";
 
 export function HeroSection() {
   return (
-    <section className="relative w-full aspect-[4096/2720] flex items-center justify-center overflow-hidden mt-24 md:mt-28 lg:mt-32">
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/dubai-abaya-sunset.png"
-          alt="Empowered woman overlooking Dubai skyline at sunset"
-          fill
-          priority
-          sizes="100vw"
-          quality={100}
-          className="object-cover"
-          style={{ objectPosition: "center center" }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
-      </div>
+    <section
+      className="
+        pt-[56px] md:pt-[80px] lg:pt-[96px]
+        relative w-full
+        min-h-screenDynamic
+        flex items-center justify-center
+        overflow-hidden
+        bg-black
+        z-base
+      "
+    >
+      {/* Background image fills the hero, fits screen like a wallpaper */}
+      <div
+        className="
+          absolute inset-0 z-0 bg-cover
+          bg-[center_35%]          /* mobile: show full face */
+          sm:bg-[center_22%]       /* ≥640 px: elegant desktop crop */
+        "
+        style={{
+          backgroundImage: "url(/images/dubai-abaya-sunset.png)",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          width: "100%",
+          height: "100%",
+        }}
+        aria-hidden="true"
+      />
 
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/45 to-transparent sm:from-black/70 z-10" />
+
+      {/* Decorative patterns */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-10 pointer-events-none">
         <div className="absolute top-0 right-0 w-64 h-64 opacity-10">
           <DecorativePattern />
         </div>
@@ -30,37 +45,45 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Add Islamic pattern behind the text */}
-      <div className="absolute inset-0 islamic-hero-pattern opacity-20"></div>
+      {/* Islamic pattern */}
+      <div className="absolute inset-0 islamic-hero-pattern opacity-20 z-10 pointer-events-none"></div>
 
-      <div className="container relative z-10 px-4 sm:px-6 lg:px-8 text-center mt-8 sm:mt-0">
-        <h1 className="heading-primary !text-white text-base sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl mb-6 md:mb-8 leading-tight">
-          <span className="block">Exceptional Properties</span>
-          <span className="block">Extraordinary Living</span>
+      {/* Main content */}
+      <div className="container relative z-20 px-2 sm:px-4 lg:px-8 max-w-2xl mx-auto text-center flex flex-col items-center justify-center">
+        <h1
+          className="
+            !text-white font-bold
+            text-[clamp(1.4rem,6vw,2.8rem)]
+            leading-tight mb-4
+            max-w-full
+            [word-break:break-word]
+          "
+        >
+          <span className="block break-words">Exceptional Properties</span>
+          <span className="block break-words">Extraordinary Living</span>
         </h1>
         <div className="flex flex-col items-center justify-center mb-8 md:mb-10">
-          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-[#D4AF37] italic mb-4 md:mb-6">
+          <p className="text-[clamp(1.05rem,4vw,2.1rem)] text-[#D4AF37] italic mb-3 font-medium">
             She builds. She owns. She leads.
           </p>
           <div className="w-32 md:w-40 h-0.5 bg-[#D4AF37]/70"></div>
         </div>
-        <p className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-8 md:mb-12">
+        <p className="text-[clamp(.98rem,3vw,1.3rem)] text-white/90 max-w-xl mx-auto mb-4 md:mb-12">
           Discover Dubai's most exclusive luxury properties with Nassira Properties
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
-          <Button asChild className="button-gold px-8 sm:px-10 py-6 sm:py-7">
+          <Button asChild className="button-gold px-8 sm:px-10 py-3 sm:py-6">
             <Link href="/properties">View Properties</Link>
           </Button>
           <Button
             asChild
             variant="outline"
-            className="border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37]/10 garamond text-base sm:text-lg px-8 sm:px-10 py-6 sm:py-7 uppercase tracking-elegant"
+            className="border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37]/10 garamond text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-6 uppercase tracking-elegant"
           >
             <Link href="/contact">Contact Us</Link>
           </Button>
         </div>
       </div>
     </section>
-  )
+  );
 }
-

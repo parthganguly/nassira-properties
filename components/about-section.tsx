@@ -3,7 +3,7 @@ import { DecorativePattern } from "@/components/decorative-pattern"
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 relative overflow-hidden bg-brand-cream">
+    <section id="about" className="pt-[56px] md:pt-[80px] lg:pt-[96px] pb-24 relative overflow-hidden bg-brand-cream">
       <div className="absolute top-0 right-0 w-64 h-64 opacity-10">
         <DecorativePattern />
       </div>
@@ -11,7 +11,7 @@ export function AboutSection() {
         <DecorativePattern />
       </div>
 
-      <div className="container px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container max-w-container px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
             <div>

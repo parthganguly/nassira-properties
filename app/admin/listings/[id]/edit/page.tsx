@@ -88,7 +88,7 @@ export default function EditListingPage() {
   if (isLoading) {
     return (
       <div className="container mx-auto px-4 py-8">
-        <div className="flex items-center justify-center min-h-screen">
+        <div className="flex items-center justify-center min-h-screenDynamic z-base">
           <div className="text-lg">Loading...</div>
         </div>
       </div>

@@ -76,10 +76,10 @@ export function TestimonialsSection() {
   ]
 
   return (
-    <section id="testimonials" className="py-24 bg-brand-cream relative overflow-hidden">
+    <section id="testimonials" className="pt-[56px] md:pt-[80px] lg:pt-[96px] pb-24 bg-brand-cream relative overflow-hidden">
       <div className="absolute inset-0 islamic-pattern opacity-10"></div>
 
-      <div className="container px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container max-w-container px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-garamond uppercase tracking-wider mb-6 text-brand-gold">
             Empowered Through Property

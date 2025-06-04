@@ -33,7 +33,7 @@ export function ValuesSection() {
         <DecorativePattern />
       </div>
 
-      <div className="container px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container max-w-container px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl font-garamond uppercase tracking-wider text-brand-navy mb-6">
             Our Core Values

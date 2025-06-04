@@ -102,6 +102,20 @@ const config = {
       borderWidth: {
         'thin': '0.5px',
       },
+      minHeight: {
+        screen: "100vh",
+        screenDynamic: "100dvh", // mobile-safe viewport
+      },
+      zIndex: {
+        base: "0",
+        content: "10",
+        overlay: "20",
+        nav: "30",
+        modal: "40",
+      },
+      maxWidth: {
+        container: "1280px",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

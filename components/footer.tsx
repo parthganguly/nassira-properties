@@ -13,7 +13,7 @@ export function Footer() {
         <DecorativePattern />
       </div>
 
-      <div className="container px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container max-w-container px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
             <Link href="/" className="inline-block mb-6">

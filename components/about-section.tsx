@@ -49,7 +49,7 @@ export function AboutSection() {
             </blockquote>
           </div>
 
-          <div className="relative lg:h-[700px]">
+          <div className="relative h-64 lg:h-[700px]">
             {/* Decorative frames */}
             <div className="absolute -top-4 -right-4 w-full h-full border border-brand-gold/30 rounded-lg"></div>
             <div className="absolute -bottom-4 -left-4 w-full h-full border border-brand-gold/30 rounded-lg"></div>

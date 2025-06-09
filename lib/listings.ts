@@ -9,8 +9,27 @@ export async function listingsCol() {
 }
 
 /* CRUD HELPERS */
-export async function getAllListings() {
-  return (await listingsCol()).find({}).sort({ createdAt: -1 }).toArray();
+/**
+ * Retrieves paginated listings from the database
+ * @param page - The page number (1-based indexing)
+ * @param limit - Number of items per page
+ * @returns Promise<Listing[]> - Array of listings for the requested page
+ * 
+ * @example
+ * // Get first page with 10 items
+ * const firstPage = await getAllListings(1, 10);
+ * 
+ * // Get second page with 20 items
+ * const secondPage = await getAllListings(2, 20);
+ */
+export async function getAllListings(page: number = 1, limit: number = 10) {
+  const skip = (page - 1) * limit;
+  return (await listingsCol())
+    .find({})
+    .sort({ createdAt: -1 })
+    .skip(skip)
+    .limit(limit)
+    .toArray();
 }
 
 export async function getListingById(id: string) {

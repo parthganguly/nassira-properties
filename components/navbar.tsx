@@ -51,7 +51,7 @@ export function Navbar() {
   return (
     <header className="fixed top-0 inset-x-0 z-nav bg-cream/95 backdrop-blur-sm border-b border-gold/30">
       <div className="container max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14 md:h-20 lg:h-24">
+        <div className="flex items-center justify-between py-3 h-auto md:h-20 lg:h-24">
           <div className="flex-shrink-0 pl-2">
             <Link href="/" className="flex items-center">
               <Image
@@ -59,7 +59,7 @@ export function Navbar() {
                 alt="Nassira Properties"
                 width={220}
                 height={110}
-                className="h-24 w-auto my-3 mx-2 logo-glow"
+                className="h-16 sm:h-20 lg:h-24 w-auto object-contain"
                 priority
               />
             </Link>
@@ -113,13 +113,13 @@ export function Navbar() {
       {/* Mobile menu */}
       {isMenuOpen && (
         <div className="md:hidden">
-          <div className="flex justify-center py-4 border-b border-gold/30">
+          <div className="flex justify-center py-6 border-b border-gold/30">
             <Image
               src="/images/logo.png"
               alt="Nassira Properties"
               width={180}
               height={90}
-              className="h-16 w-auto logo-glow"
+              className="h-16 w-auto object-contain"
             />
           </div>
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-cream border-b border-gold/30">

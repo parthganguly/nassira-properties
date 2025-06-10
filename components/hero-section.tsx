@@ -19,8 +19,8 @@ export function HeroSection() {
       <div
         className="
           absolute inset-0 z-0
-          bg-contain bg-no-repeat bg-center
-          sm:bg-cover sm:bg-[center_22%]
+          bg-cover bg-no-repeat bg-center
+          sm:bg-[center_22%]
         "
         style={{
           backgroundImage: "url(/images/dubai-abaya-sunset.png)",

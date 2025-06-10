@@ -85,10 +85,10 @@ export function Navbar() {
 
           <div className="hidden md:flex items-center space-x-4">
             <a
-              href="tel:+97141234567"
+              href="tel:+971566002563"
               className="garamond text-sm text-gold hover:text-gold-light transition-colors duration-200"
             >
-              +971 4 123 4567
+              +971 56 600 2563
             </a>
             <div className="h-4 w-px bg-gold/30"></div>
             <Link
@@ -144,10 +144,10 @@ export function Navbar() {
             </MobileNavLink>
             <div className="pt-4 pb-2">
               <a
-                href="tel:+97141234567"
+                href="tel:+971501234567"
                 className="garamond block px-3 py-2 text-base font-medium text-gold hover:text-gold-light transition-colors duration-200"
               >
-                +971 4 123 4567
+                +971 50 123 4567
               </a>
               <Link
                 href="/contact"

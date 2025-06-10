@@ -43,9 +43,9 @@ export default function ContactPage() {
                   <div>
                     <h3 className="garamond text-xl font-medium mb-2 text-brand-gold">Phone</h3>
                     <p className="garamond text-lg text-brand-navy">
-                      +971 4 123 4567
+                      +971 56 600 2563
                       <br />
-                      +971 50 987 6543
+                      +971 56 600 2563
                     </p>
                   </div>
                 </div>

@@ -18,14 +18,13 @@ export function HeroSection() {
       {/* Background image fills the hero, fits screen like a wallpaper */}
       <div
         className="
-          absolute inset-0 z-0 bg-cover
-          bg-[center_35%]          /* mobile: show full face */
-          sm:bg-[center_22%]       /* ≥640 px: elegant desktop crop */
+          absolute inset-0 z-0
+          bg-contain bg-no-repeat bg-center
+          sm:bg-cover sm:bg-[center_22%]
         "
         style={{
           backgroundImage: "url(/images/dubai-abaya-sunset.png)",
           backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
           width: "100%",
           height: "100%",
         }}

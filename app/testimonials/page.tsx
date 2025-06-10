@@ -50,7 +50,7 @@ export default function TestimonialsPage() {
         "Nassira Properties helped me find my dream home and guided me through every step of the investment process. As a first-time female property owner in Dubai, I felt empowered and supported throughout the journey.",
       name: "Amina Khalid",
       title: "Business Owner",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/images/amina.png",
     },
     {
       id: 2,
@@ -58,7 +58,7 @@ export default function TestimonialsPage() {
         "Working with Nassira was transformative. Her understanding of the market and commitment to helping women build wealth through real estate is unparalleled. I now own three investment properties in Dubai.",
       name: "Layla Mahmoud",
       title: "Finance Executive",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/images/layla.png",
     },
     {
       id: 3,
@@ -66,7 +66,7 @@ export default function TestimonialsPage() {
         "The team at Nassira Properties understood exactly what I was looking for and helped me find a property that not only meets my family's needs but is also a solid investment for our future.",
       name: "Fatima Al-Qasimi",
       title: "Doctor & Investor",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/images/fatima.png",
     },
     {
       id: 4,
@@ -74,7 +74,7 @@ export default function TestimonialsPage() {
         "I've worked with several real estate agencies in Dubai, but none compare to the personalized service and attention to detail that Nassira Properties provides. They truly understand the luxury market.",
       name: "Sarah Johnson",
       title: "International Investor",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/images/sarah_johnson.png",
     },
     {
       id: 5,
@@ -82,7 +82,7 @@ export default function TestimonialsPage() {
         "The investment opportunity that Nassira Properties presented to me has been life-changing. Their market insights and strategic approach to real estate have helped me build significant wealth.",
       name: "Maryam Al-Hashimi",
       title: "Entrepreneur",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/images/Maryam%20Al-Hashimi.png",
     },
     {
       id: 6,
@@ -90,7 +90,7 @@ export default function TestimonialsPage() {
         "As a woman entering the real estate market, I was looking for a partner who understood my unique needs. Nassira Properties not only met but exceeded my expectations with their empowering approach.",
       name: "Noor Ahmed",
       title: "Corporate Executive",
-      image: "/placeholder.svg?height=200&width=200",
+      image: "/images/noor_ahmed.png",
     },
   ]
 

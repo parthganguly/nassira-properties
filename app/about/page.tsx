@@ -43,7 +43,7 @@ export default function AboutPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/60 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-center">
-                  <p className="garamond text-brand-gold text-lg italic">
+                  <p className="garamond text-brand-gold text-lg italic bg-black/40 rounded px-2 drop-shadow-lg">
                     "Rising like a phoenix, empowering women in Dubai's real estate"
                   </p>
                 </div>

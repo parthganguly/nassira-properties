@@ -1,7 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Facebook, Instagram, Twitter } from "lucide-react"
+import { Instagram, Linkedin } from "lucide-react"
 import { DecorativePattern } from "@/components/decorative-pattern"
+import { PropfinderIcon } from "./propfinder-icon"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -108,25 +109,34 @@ export function Footer() {
             </h3>
             <div className="flex space-x-4 mb-6">
               <a
-                href="#"
-                className="bg-gold/10 p-2 rounded-full text-gold hover:bg-gold/20 transition-colors duration-200 border border-gold/30 hover:border-gold/60"
-              >
-                <Facebook className="h-5 w-5" />
-                <span className="sr-only">Facebook</span>
-              </a>
-              <a
-                href="#"
+                href="https://www.instagram.com/nassiraproperties/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
                 className="bg-gold/10 p-2 rounded-full text-gold hover:bg-gold/20 transition-colors duration-200 border border-gold/30 hover:border-gold/60"
               >
                 <Instagram className="h-5 w-5" />
                 <span className="sr-only">Instagram</span>
               </a>
               <a
-                href="#"
+                href="https://www.propertyfinder.ae/en/broker/nassira-realty-group-9824"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Propfinder"
                 className="bg-gold/10 p-2 rounded-full text-gold hover:bg-gold/20 transition-colors duration-200 border border-gold/30 hover:border-gold/60"
               >
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
+                <PropfinderIcon className="h-5 w-5" />
+                <span className="sr-only">Propfinder</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/company/nassirarealtygroup/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="bg-gold/10 p-2 rounded-full text-gold hover:bg-gold/20 transition-colors duration-200 border border-gold/30 hover:border-gold/60"
+              >
+                <Linkedin className="h-5 w-5" />
+                <span className="sr-only">LinkedIn</span>
               </a>
             </div>
             <p className="text-body mb-4">

@@ -44,8 +44,6 @@ export default function ContactPage() {
                     <h3 className="garamond text-xl font-medium mb-2 text-brand-gold">Phone</h3>
                     <p className="garamond text-lg text-brand-navy">
                       +971 56 600 2563
-                      <br />
-                      +971 56 600 2563
                     </p>
                   </div>
                 </div>
@@ -57,9 +55,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="garamond text-xl font-medium mb-2 text-brand-gold">Email</h3>
                     <p className="garamond text-lg text-brand-navy">
-                      info@nassiraproperties.com
-                      <br />
-                      sales@nassiraproperties.com
+                    nassira@nassirarealty.com
                     </p>
                   </div>
                 </div>

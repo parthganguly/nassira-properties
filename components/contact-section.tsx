@@ -67,9 +67,7 @@ export function ContactSection() {
                 <div>
                   <h3 className="font-garamond text-xl font-medium mb-2 text-brand-gold">Email</h3>
                   <p className="text-body text-brand-navy">
-                    info@nassiraproperties.com
-                    <br />
-                    sales@nassiraproperties.com
+                  nassira@nassirarealty.com
                   </p>
                 </div>
               </div>

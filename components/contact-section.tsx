@@ -56,8 +56,6 @@ export function ContactSection() {
                   <h3 className="font-garamond text-xl font-medium mb-2 text-brand-gold">Phone</h3>
                   <p className="text-body text-brand-navy">
                     +971 56 600 2563
-                    <br />
-                    +971 56 600 2563
                   </p>
                 </div>
               </div>

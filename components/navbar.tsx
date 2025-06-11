@@ -67,7 +67,7 @@ export function Navbar() {
 
           <nav className="hidden md:flex space-x-8">
             <NavLink href="/properties" active={pathname === "/properties"}>
-              Properties
+              Featured Properties
             </NavLink>
             <NavLink href="/listings" active={pathname === "/listings"}>
               Listings
@@ -124,7 +124,7 @@ export function Navbar() {
           </div>
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-cream border-b border-gold/30">
             <MobileNavLink href="/properties" active={pathname === "/properties"} onClick={() => setIsMenuOpen(false)}>
-              Properties
+              Featured Properties
             </MobileNavLink>
             <MobileNavLink href="/listings" active={pathname === "/listings"} onClick={() => setIsMenuOpen(false)}>
               Listings

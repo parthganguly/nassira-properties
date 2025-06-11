@@ -27,26 +27,10 @@ export default function NewListingPage() {
     const formData = new FormData(e.currentTarget);
     const title = formData.get('title') as string;
     
-    const data = {
-      title,
-      location: formData.get('location') as string,
-      price: Number(formData.get('price')),
-      bedrooms: Number(formData.get('bedrooms')),
-      bathrooms: Number(formData.get('bathrooms')),
-      area: Number(formData.get('area')),
-      description: formData.get('description') as string,
-      imageUrl: formData.get('imageUrl') as string,
-      featured: formData.get('featured') === 'on',
-      slug: generateSlug(title),
-    };
-
     try {
       const response = await fetch('/api/listings', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+        body: formData,
       });
 
       if (!response.ok) {
@@ -173,16 +157,21 @@ export default function NewListingPage() {
             </div>
 
             <div className="md:col-span-2">
-              <label htmlFor="imageUrl" className="block text-sm font-medium text-gray-700 mb-1">
-                Image URL
+              <label htmlFor="images" className="block text-sm font-medium text-gray-700 mb-1">
+                Property Images *
               </label>
               <input
-                type="url"
-                id="imageUrl"
-                name="imageUrl"
+                type="file"
+                id="images"
+                name="images"
+                accept="image/*"
+                multiple
+                required
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="https://example.com/image.jpg"
               />
+              <p className="mt-1 text-sm text-gray-500">
+                Upload multiple high-quality images of your property (JPG, PNG, or GIF)
+              </p>
             </div>
 
             <div className="md:col-span-2">
@@ -210,6 +199,67 @@ export default function NewListingPage() {
                   Featured Property
                 </span>
               </label>
+            </div>
+
+            <div className="md:col-span-2 border-t pt-6 mt-6">
+              <h3 className="text-lg font-medium text-gray-900 mb-4">Agent Information</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="agentName" className="block text-sm font-medium text-gray-700 mb-1">
+                    Agent Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="agentName"
+                    name="agentName"
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="John Doe"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="agentPhone" className="block text-sm font-medium text-gray-700 mb-1">
+                    Agent Phone *
+                  </label>
+                  <input
+                    type="tel"
+                    id="agentPhone"
+                    name="agentPhone"
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="+1 (555) 123-4567"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="agentEmail" className="block text-sm font-medium text-gray-700 mb-1">
+                    Agent Email *
+                  </label>
+                  <input
+                    type="email"
+                    id="agentEmail"
+                    name="agentEmail"
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="john@example.com"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="agentImage" className="block text-sm font-medium text-gray-700 mb-1">
+                    Agent Photo (Optional)
+                  </label>
+                  <input
+                    type="file"
+                    id="agentImage"
+                    name="agentImage"
+                    accept="image/*"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+              </div>
             </div>
           </div>
 

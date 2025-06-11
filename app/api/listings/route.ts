@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAllListings, createListing } from "@/lib/listings";
+import { uploadImage } from "@/lib/cloudinary";
 import type { Listing } from "@/types/listing";
 
 export async function GET() {
@@ -18,20 +19,74 @@ export async function GET() {
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
-    const data = Object.fromEntries(formData.entries());
+    const imageFiles = formData.getAll('images') as File[];
+    const agentImageFile = formData.get('agentImage') as File | null;
     
+    if (imageFiles.length === 0) {
+      return NextResponse.json(
+        { success: false, error: "At least one image is required" },
+        { status: 400 }
+      );
+    }
+
+    // Upload all property images to Cloudinary in parallel
+    let imageUrls: string[];
+    try {
+      imageUrls = await Promise.all(
+        imageFiles.map(async (file) => {
+          const bytes = await file.arrayBuffer();
+          const buffer = Buffer.from(bytes);
+          return uploadImage(buffer);
+        })
+      );
+    } catch (error) {
+      console.error("Error uploading images to Cloudinary:", error);
+      return NextResponse.json(
+        { 
+          success: false, 
+          error: "Failed to upload one or more images. Please try again with smaller images or fewer images at once." 
+        },
+        { status: 500 }
+      );
+    }
+
+    // Upload agent image if provided
+    let agentImageUrl: string | undefined;
+    if (agentImageFile && agentImageFile.size > 0) {
+      try {
+        const bytes = await agentImageFile.arrayBuffer();
+        const buffer = Buffer.from(bytes);
+        agentImageUrl = await uploadImage(buffer);
+      } catch (error) {
+        console.error("Error uploading agent image to Cloudinary:", error);
+        return NextResponse.json(
+          { 
+            success: false, 
+            error: "Failed to upload agent image. Please try again with a smaller image." 
+          },
+          { status: 500 }
+        );
+      }
+    }
+
     // Convert and validate the form data
     const listingData: Omit<Listing, "_id" | "createdAt" | "updatedAt"> = {
-      title: data.title as string,
-      location: data.location as string,
-      price: parseFloat(data.price as string),
-      bedrooms: parseInt(data.bedrooms as string),
-      bathrooms: parseInt(data.bathrooms as string),
-      area: parseFloat(data.area as string),
-      description: data.description as string || "",
-      imageUrl: data.imageUrl as string || "",
-      featured: data.featured === "true",
-      slug: (data.title as string).toLowerCase().replace(/\s+/g, "-"),
+      title: formData.get('title') as string,
+      location: formData.get('location') as string,
+      price: parseFloat(formData.get('price') as string),
+      bedrooms: parseInt(formData.get('bedrooms') as string),
+      bathrooms: parseInt(formData.get('bathrooms') as string),
+      area: parseFloat(formData.get('area') as string),
+      description: formData.get('description') as string || "",
+      images: imageUrls,
+      featured: formData.get('featured') === "true",
+      slug: (formData.get('title') as string).toLowerCase().replace(/\s+/g, "-"),
+      agent: {
+        name: formData.get('agentName') as string,
+        phone: formData.get('agentPhone') as string,
+        email: formData.get('agentEmail') as string,
+        imageUrl: agentImageUrl,
+      },
     };
 
     const listing = await createListing(listingData);
@@ -39,7 +94,10 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error("Error creating listing:", error);
     return NextResponse.json(
-      { success: false, error: "Failed to create listing" },
+      { 
+        success: false, 
+        error: "Failed to create listing. Please check your input and try again." 
+      },
       { status: 500 }
     );
   }

@@ -49,28 +49,23 @@ export default function EditListingPage() {
     setError(null);
 
     const formData = new FormData(e.currentTarget);
-    const title = formData.get('title') as string;
+    const imageFiles = formData.getAll('images') as File[];
+    const agentImageFile = formData.get('agentImage') as File;
     
-    const data = {
-      title,
-      location: formData.get('location') as string,
-      price: Number(formData.get('price')),
-      bedrooms: Number(formData.get('bedrooms')),
-      bathrooms: Number(formData.get('bathrooms')),
-      area: Number(formData.get('area')),
-      description: formData.get('description') as string,
-      imageUrl: formData.get('imageUrl') as string,
-      featured: formData.get('featured') === 'on',
-      slug: generateSlug(title),
-    };
+    // Only include images in the request if new ones were uploaded
+    if (imageFiles.length === 0 || (imageFiles.length === 1 && imageFiles[0].size === 0)) {
+      formData.delete('images');
+    }
+    
+    // Only include agent image if a new one was uploaded
+    if (agentImageFile.size === 0) {
+      formData.delete('agentImage');
+    }
 
     try {
       const response = await fetch(`/api/listings/${params.id}`, {
         method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+        body: formData,
       });
 
       if (!response.ok) {
@@ -229,17 +224,33 @@ export default function EditListingPage() {
             </div>
 
             <div className="md:col-span-2">
-              <label htmlFor="imageUrl" className="block text-sm font-medium text-gray-700 mb-1">
-                Image URL
+              <label htmlFor="images" className="block text-sm font-medium text-gray-700 mb-1">
+                Property Images
               </label>
+              {listing.images && listing.images.length > 0 && (
+                <div className="mb-4 grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {listing.images.map((imageUrl, index) => (
+                    <div key={index} className="relative aspect-video">
+                      <img
+                        src={imageUrl}
+                        alt={`Property image ${index + 1}`}
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
               <input
-                type="url"
-                id="imageUrl"
-                name="imageUrl"
-                defaultValue={listing.imageUrl || ''}
+                type="file"
+                id="images"
+                name="images"
+                accept="image/*"
+                multiple
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="https://example.com/image.jpg"
               />
+              <p className="mt-1 text-sm text-gray-500">
+                Upload new images to add to or replace the current ones (JPG, PNG, or GIF)
+              </p>
             </div>
 
             <div className="md:col-span-2">
@@ -269,6 +280,82 @@ export default function EditListingPage() {
                   Featured Property
                 </span>
               </label>
+            </div>
+
+            <div className="md:col-span-2 border-t pt-6 mt-6">
+              <h3 className="text-lg font-medium text-gray-900 mb-4">Agent Information</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="agentName" className="block text-sm font-medium text-gray-700 mb-1">
+                    Agent Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="agentName"
+                    name="agentName"
+                    required
+                    defaultValue={listing.agent?.name || ''}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="John Doe"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="agentPhone" className="block text-sm font-medium text-gray-700 mb-1">
+                    Agent Phone *
+                  </label>
+                  <input
+                    type="tel"
+                    id="agentPhone"
+                    name="agentPhone"
+                    required
+                    defaultValue={listing.agent?.phone || ''}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="+1 (555) 123-4567"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="agentEmail" className="block text-sm font-medium text-gray-700 mb-1">
+                    Agent Email *
+                  </label>
+                  <input
+                    type="email"
+                    id="agentEmail"
+                    name="agentEmail"
+                    required
+                    defaultValue={listing.agent?.email || ''}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="john@example.com"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="agentImage" className="block text-sm font-medium text-gray-700 mb-1">
+                    Agent Photo
+                  </label>
+                  {listing.agent?.imageUrl && (
+                    <div className="mb-4">
+                      <img
+                        src={listing.agent.imageUrl}
+                        alt="Current agent photo"
+                        className="w-32 h-32 object-cover rounded-lg"
+                      />
+                    </div>
+                  )}
+                  <input
+                    type="file"
+                    id="agentImage"
+                    name="agentImage"
+                    accept="image/*"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                  <p className="mt-1 text-sm text-gray-500">
+                    Upload a new photo to replace the current one
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 

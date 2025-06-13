@@ -1,4 +1,5 @@
 // types/listing.ts
+import { ObjectId } from "mongodb";
 
 export interface Agent {
   name: string;
@@ -7,8 +8,8 @@ export interface Agent {
   imageUrl?: string;
 }
 
-export interface Listing {
-  _id?: string;           // MongoDB document ID
+// Base interface for common fields
+interface BaseListing {
   slug: string;           // URL-safe identifier, e.g. "luxury-villa-dubai"
   title: string;          // Property title
   location: string;       // Address or general location
@@ -20,8 +21,20 @@ export interface Listing {
   images: string[];       // Array of image URLs
   featured?: boolean;     // Highlight flag
   agent: Agent;          // Agent information
-  createdAt?: string;     // ISO date string
-  updatedAt?: string;     // ISO date string
+}
+
+// MongoDB version with ObjectId
+export interface MongoListing extends BaseListing {
+  _id: ObjectId;
+  createdAt: string;
+  updatedAt: string;
+}
+
+// Serialized version with string IDs
+export interface Listing extends BaseListing {
+  _id?: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export interface ListingResponse {

@@ -1,0 +1,72 @@
+/* Custom Swiper Navigation */
+.swiperButtonNext,
+.swiperButtonPrev {
+  width: 40px !important;
+  height: 40px !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 50% !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.3s ease !important;
+}
+
+.swiperButtonNext:after,
+.swiperButtonPrev:after {
+  font-size: 18px !important;
+  color: #2E2E2E !important;
+  font-weight: bold !important;
+}
+
+.swiperButtonNext:hover,
+.swiperButtonPrev:hover {
+  background: #D4AF37 !important;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3) !important;
+}
+
+.swiperButtonNext:hover:after,
+.swiperButtonPrev:hover:after {
+  color: white !important;
+}
+
+/* Custom Swiper Pagination */
+.swiperPagination {
+  bottom: 16px !important;
+}
+
+.swiperPaginationBullet {
+  width: 10px !important;
+  height: 10px !important;
+  background: rgba(255, 255, 255, 0.5) !important;
+  border: 2px solid rgba(255, 255, 255, 0.8) !important;
+  opacity: 1 !important;
+  transition: all 0.3s ease !important;
+}
+
+.swiperPaginationBulletActive {
+  background: #D4AF37 !important;
+  border-color: #D4AF37 !important;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.5) !important;
+}
+
+/* Hide default Swiper styles */
+.swiperButtonNext:after,
+.swiperButtonPrev:after {
+  content: "" !important;
+}
+
+/* Custom arrow icons */
+.swiperButtonNext::before,
+.swiperButtonPrev::before {
+  content: "" !important;
+  position: absolute !important;
+  width: 10px !important;
+  height: 10px !important;
+  border-top: 2px solid currentColor !important;
+  border-right: 2px solid currentColor !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) rotate(45deg) !important;
+}
+
+.swiperButtonPrev::before {
+  transform: translate(-50%, -50%) rotate(-135deg) !important;
+} 

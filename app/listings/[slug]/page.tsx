@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
 import PropertyImagesCarousel from "@/components/PropertyImagesCarousel";
+import { normalizeSlug } from "@/lib/slug";
 
 export const generateMetadata = async ({ params }: { params: { slug: string } }): Promise<Metadata> => {
   const listing = await getListingBySlug(params.slug);

@@ -19,9 +19,11 @@ export default async function PropertiesPage() {
   // Fetch all listings from MongoDB with error handling
   let listings: Listing[] = [];
   try {
-    listings = await getAllListings();
+    const result = await getAllListings();
+    listings = Array.isArray(result) ? result : [];
   } catch (error) {
     console.error('Failed to fetch listings:', error);
+    listings = []; // Ensure listings is always an array
   }
   
   // Convert MongoDB objects to plain JS values
@@ -54,9 +56,17 @@ export default async function PropertiesPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {serializedListings.map((listing) => (
-              <ListingCard key={listing._id} listing={listing} />
-            ))}
+            {Array.isArray(serializedListings) && serializedListings.length > 0 ? (
+              serializedListings.map((listing) => (
+                <ListingCard key={listing._id} listing={listing} />
+              ))
+            ) : (
+              <div className="col-span-full text-center py-12">
+                <p className="text-lg text-brand-navy/70 font-garamond">
+                  No properties available at the moment. Please check back later or contact our team for personalized recommendations.
+                </p>
+              </div>
+            )}
           </div>
 
           <div className="text-center mt-16">

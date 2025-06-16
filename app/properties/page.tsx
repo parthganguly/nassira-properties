@@ -16,8 +16,13 @@ function serializeListing(listing: Listing): Listing {
 }
 
 export default async function PropertiesPage() {
-  // Fetch all listings from MongoDB
-  const listings = await getAllListings()
+  // Fetch all listings from MongoDB with error handling
+  let listings: Listing[] = [];
+  try {
+    listings = await getAllListings();
+  } catch (error) {
+    console.error('Failed to fetch listings:', error);
+  }
   
   // Convert MongoDB objects to plain JS values
   const serializedListings = listings.map(serializeListing)
